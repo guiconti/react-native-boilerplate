@@ -78,6 +78,9 @@ import com.android.build.OutputFile
 project.ext.react = [
     entryFile: "native/index.js",
     enableHermes: false,  // clean and rebuild if changing
+//     bundleInDebug   : true,
+//     jsBundleDirDebug: "$buildDir/intermediates/bundles/debug/assets",
+//     jsBundleDirRelease: "$buildDir/intermediates/bundles/release/assets"
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -172,6 +175,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-gesture-handler')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
