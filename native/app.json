@@ -1,5 +1,8 @@
 {
-  "name": "reactnativetest",
+  "names": {
+    "root": "reactnativetest",
+    "wallet": "wallet"
+  },
   "displayName": "reactnativetest",
   "expo": {
     "sdkVersion": "0.0.1"

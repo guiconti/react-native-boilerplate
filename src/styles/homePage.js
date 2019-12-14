@@ -17,6 +17,9 @@ export default StyleSheet.create({
   body: {
     backgroundColor: Colors.white,
   },
+  card: {
+    backgroundColor: '#76BA1B'
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,

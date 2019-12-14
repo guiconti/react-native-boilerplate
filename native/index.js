@@ -3,7 +3,9 @@
  */
 
 import {AppRegistry} from 'react-native';
-import Root from '../src/components/Root.native';
-import {name as appName} from './app.json';
+import Root from '../src/components/registrations/Root';
+import Wallet from '../src/components/registrations/Wallet';
+import { names } from './app.json';
 
-AppRegistry.registerComponent(appName, () => Root);
+AppRegistry.registerComponent(names.root, () => Root);
+AppRegistry.registerComponent(names.wallet, () => Wallet);

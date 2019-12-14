@@ -4,25 +4,31 @@ import {
   SafeAreaView,
   ScrollView,
   View,
-  Text,
   StatusBar,
+  DeviceEventEmitter,
 } from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
+import { Header } from 'react-native/Libraries/NewAppScreen';
 import styles from '../styles/homePage.js';
 import navigate from '../utils/navigate';
 import { EXAMPLE } from '../constants/screens';
+import { Content, Button, Text } from 'native-base';
+import { connect } from 'react-redux';
+import Wallet from './Wallet';
 
-import { Container, Content, Button } from 'native-base';
+const onTest = event => {
+  console.log(event);  
+};
+
+DeviceEventEmitter.addListener('onTest', onTest);
+
+import {NativeModules} from 'react-native';
+console.log("NativeModules", NativeModules);
+const myModule = NativeModules.TestModule;
 
 class HomePage extends React.Component {
   render() {
+    console.log("NativeModules", NativeModules);
+    // console.log(myModule.getName())
     const { navigation } = this.props;
     return (
     <>
@@ -32,47 +38,15 @@ class HomePage extends React.Component {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>x One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-          <View>
-            <Container>
               <Content>
                 <Button primary onPress={() => navigate(navigation, EXAMPLE, false)}>
-                  <Text> Primary </Text>
+                  <Text> This is a button </Text>
                 </Button>
               </Content>
-            </Container>
+              <Wallet />
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -85,4 +59,17 @@ HomePage.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-export default HomePage;
+function mapStateToProps(state) {
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
+  return {};
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomePage);
+
+// export default HomePage;

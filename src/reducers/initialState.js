@@ -6,5 +6,8 @@ export default {
   bar: {
     example: 0,
     anotherExample: '',
-  }
+  },
+  wallet: {
+    funds: null,
+  },
 };
