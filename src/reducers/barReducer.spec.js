@@ -12,9 +12,9 @@ describe('Reducers Bar', () => {
 
   it('should handle BAR_EXAMPLE', () => {
     const action = { type: BAR_EXAMPLE, example: 'Test example' };
-    const expected = Object.assign(initialState, { example: action.example });
+    const expected = Object.assign(initialState.bar, { example: action.example });
 
-    expect(reducer(initialState, action)).toEqual(expected);
+    expect(reducer(initialState.bar, action)).toEqual(expected);
   });
 
   it('should handle BAR_ANOTHER_EXAMPLE', () => {
@@ -22,6 +22,6 @@ describe('Reducers Bar', () => {
 
     const expectedAnotherExample = 30;
 
-    expect(reducer(initialState, action).anotherExample).toEqual(expectedAnotherExample);
+    expect(reducer(initialState.bar, action).anotherExample).toEqual(expectedAnotherExample);
   });
 });
