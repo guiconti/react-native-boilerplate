@@ -1,11 +1,11 @@
 /* eslint-disable import/no-named-as-default */
 import { NavLink, Route, Switch } from "react-router-dom";
 
-import HomePage from './HomePage';
-import ExamplePage from './ExamplePage';
-import FooPage from './containers/FooPage';
-import BarPage from './containers/BarPage';
-import NotFoundPage from './NotFoundPage';
+import Home from './pages/Home';
+import Example from './pages/Example';
+import Foo from './pages/Foo';
+import Bar from './pages/Bar';
+import NotFound from './pages/NotFound';
 import PropTypes from "prop-types";
 import React from "react";
 import { hot } from "react-hot-loader";
@@ -29,11 +29,11 @@ class App extends React.Component {
           <NavLink to="/bar" activeStyle={activeStyle}>Bar</NavLink>
         </div>
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/example" component={ExamplePage} />
-          <Route path="/foo" component={FooPage} />
-          <Route path="/bar" component={BarPage} />
-          <Route component={NotFoundPage} />
+          <Route exact path="/" component={Home} />
+          <Route path="/example" component={Example} />
+          <Route path="/foo" component={Foo} />
+          <Route path="/bar" component={Bar} />
+          <Route component={NotFound} />
         </Switch>
       </div>
     );

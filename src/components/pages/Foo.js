@@ -15,11 +15,11 @@ export class FooPage extends React.Component {
 
   componentDidMount() {
     this.example();
-    setTimeout(this.anotherExample, 2000);
+    this.anotherExample();
   }
 
   render() {
-    let foo = this.props.foo;
+    const foo = this.props.foo;
     return (
       <div>
         <h2 className="alt-header">Example</h2>

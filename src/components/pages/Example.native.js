@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Text,
 } from 'react-native';
-import styles from '../styles/examplePage.js';
+import styles from '../../styles/examplePage.js';
 
 class ExamplePage extends React.Component {
   render() {

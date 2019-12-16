@@ -1,13 +1,13 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import transitionConfig from  '../utils/transitionConfig';
-import HomePage from './HomePage';
-import ExamplePage from './ExamplePage';
+import Home from './pages/Home';
+import Example from './pages/Example';
 
 const MainNavigator = createStackNavigator(
   {
-    Home: {screen: HomePage},
-    Example: {screen: ExamplePage},
+    Home: {screen: Home},
+    Example: {screen: Example},
   },
   {
     initialRouteName: 'Home',

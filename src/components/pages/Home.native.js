@@ -5,30 +5,17 @@ import {
   ScrollView,
   View,
   StatusBar,
-  DeviceEventEmitter,
 } from 'react-native';
 import { Header } from 'react-native/Libraries/NewAppScreen';
-import styles from '../styles/homePage.js';
-import navigate from '../utils/navigate';
-import { EXAMPLE } from '../constants/screens';
+import styles from '../../styles/homePage.js';
+import navigate from '../../utils/navigate';
+import { EXAMPLE } from '../../constants/screens';
 import { Content, Button, Text } from 'native-base';
 import { connect } from 'react-redux';
-import Wallet from './Wallet';
-
-const onTest = event => {
-  console.log(event);  
-};
-
-DeviceEventEmitter.addListener('onTest', onTest);
-
-import {NativeModules} from 'react-native';
-console.log("NativeModules", NativeModules);
-const myModule = NativeModules.TestModule;
+import Wallet from '../containers/Wallet';
 
 class HomePage extends React.Component {
   render() {
-    console.log("NativeModules", NativeModules);
-    // console.log(myModule.getName())
     const { navigation } = this.props;
     return (
     <>
@@ -71,5 +58,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(HomePage);
-
-// export default HomePage;

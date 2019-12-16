@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import '../styles/example-page.css';
+import '../../styles/example-page.css';
 
 // Since this component is simple and static, there's no parent container for it.
 const ExamplePage = () => {

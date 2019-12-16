@@ -15,11 +15,11 @@ export class BarPage extends React.Component {
 
   componentDidMount() {
     this.example();
-    setTimeout(this.anotherExample, 2000);
+    this.anotherExample();
   }
 
   render() {
-    let bar = this.props.bar;
+    const bar = this.props.bar;
     return (
       <div>
         <h2 className="alt-header">Example</h2>

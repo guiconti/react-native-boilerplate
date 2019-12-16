@@ -4,11 +4,11 @@ import {
   SafeAreaView,
   View,
 } from 'react-native';
-import styles from '../styles/homePage.js';
+import styles from '../../styles/homePage.js';
 import { Card, CardItem, Body, Left, Icon, Text, Spinner } from 'native-base';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from '../actions/walletActions';
+import * as actions from '../../actions/walletActions';
 
 class Wallet extends React.Component {
 
@@ -17,12 +17,11 @@ class Wallet extends React.Component {
   };
 
   componentDidMount() {
-    // this.getFunds();
-    setTimeout(this.getFunds, 2000);
+    this.getFunds();
   }
 
   render() {
-    let wallet = this.props.wallet;
+    const wallet = this.props.wallet;
     return (
     <>
       <SafeAreaView>
