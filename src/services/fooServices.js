@@ -1,5 +1,5 @@
 export function retrieveExample () {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       return resolve("Example retrieved");
     }, 2000);

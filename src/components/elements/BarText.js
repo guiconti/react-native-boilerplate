@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const BarText = (props) => {
   return (
     <p>
-      {props.fixedText} {props.dynamicText}.
+      {props.fixedText} {props.dynamicText}
     </p>
   );
 };
