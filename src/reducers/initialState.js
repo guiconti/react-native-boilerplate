@@ -4,7 +4,7 @@ export default {
     anotherExample: false,
   },
   bar: {
-    example: 0,
+    example: '',
     anotherExample: '',
   },
   wallet: {

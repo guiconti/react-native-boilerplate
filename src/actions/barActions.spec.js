@@ -14,7 +14,7 @@ describe('Bar Actions', () => {
     const dispatch = jest.fn();
     const expected = {
       type: BAR_EXAMPLE,
-      example: 'Example retrieved',
+      example: 'Delayed example retrieved',
     };
 
     // we expect this to return a function since it is a thunk
