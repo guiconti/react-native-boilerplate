@@ -1,7 +1,7 @@
 export default {
   foo: {
     example: '',
-    anotherExample: false,
+    anotherExample: '',
   },
   bar: {
     example: '',

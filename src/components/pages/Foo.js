@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FooText from '../elements/FooText';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/fooActions';
@@ -23,12 +24,8 @@ export class FooPage extends React.Component {
     return (
       <div>
         <h2 className="alt-header">Example</h2>
-        <p>
-          The example value is {foo.example}.
-        </p>
-        <p>
-          The another example value is {foo.anotherExample}.
-        </p>
+        <FooText fixedText="The example value is" dynamicText={foo.example}/>
+        <FooText fixedText="The another example value is" dynamicText={foo.anotherExample}/>
       </div>
     );
   }
