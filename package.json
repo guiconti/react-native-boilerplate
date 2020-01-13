@@ -26,7 +26,8 @@
     "open:cover": "npm run test:cover && open-cli ./coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
     "android": "react-native run-android",
-    "ios": "react-native run-ios"
+    "ios": "react-native run-ios",
+    "build-android": "cd android && ./gradlew assemble && ./gradlew assemble"
   },
   "repository": {
     "type": "git",
@@ -90,8 +91,8 @@
     "jest": "24.9.0",
     "jest-cli": "24.9.0",
     "json-loader": "0.5.7",
-    "mini-css-extract-plugin": "0.8.0",
     "metro-react-native-babel-preset": "^0.57.0",
+    "mini-css-extract-plugin": "0.8.0",
     "mockdate": "2.0.5",
     "node-sass": "4.13.0",
     "open-cli": "5.0.0",
