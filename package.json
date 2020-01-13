@@ -27,7 +27,8 @@
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "build-android": "cd android && ./gradlew assemble && ./gradlew assemble"
+    "build-android": "cd android && ./gradlew assemble && ./gradlew assemble",
+    "build-ios": "react-native bundle --entry-file='native/index.js' --bundle-output='./ios/react-native-framework/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'"
   },
   "repository": {
     "type": "git",
