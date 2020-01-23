@@ -8,6 +8,16 @@
 
 import UIKit
 
-class ReactNativeClass: NSObject {
-
+public class ReactNativeClass: NSObject {
+  public func testReactNative() -> String {
+    return "React native"
+  }
+  
+  public func getView() -> RCTRootView {
+    guard let jsCodeLocation = Bundle.main.url(forResource: "main", withExtension: "jsbundle") else { return true }
+    
+    let reactView = RCTRootView(bundleURL: jsCodeLocation, moduleName: "wallet", initialProperties: nil, launchOptions: nil)
+    
+    return reactView
+  }
 }

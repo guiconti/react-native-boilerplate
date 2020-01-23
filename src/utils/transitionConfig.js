@@ -3,7 +3,7 @@ import { Easing, Animated } from 'react-native';
 export default () => {
   return {
     transitionSpec: {
-      duration: 350,
+      duration: 650,
       easing: Easing.out(Easing.poly(4)),
       timing: Animated.timing,
       useNativeDriver: true,

@@ -9,7 +9,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   public String getMainComponentName() {
-    return "reactnativetest";
+    return "onboarding";
   }
 
 }

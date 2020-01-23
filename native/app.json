@@ -1,7 +1,8 @@
 {
   "names": {
     "root": "reactnativetest",
-    "wallet": "wallet"
+    "wallet": "wallet",
+    "onboarding": "onboarding"
   },
   "displayName": "reactnativetest",
   "expo": {

@@ -1,4 +1,6 @@
 module.exports = {
   HOME: 'Home',
-  EXAMPLE: 'Example',  
+  EXAMPLE: 'Example',
+  ONBOARDING: 'Onboarding',
+  LOGIN: 'Login',
 };

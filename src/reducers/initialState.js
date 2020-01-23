@@ -10,4 +10,11 @@ export default {
   wallet: {
     funds: null,
   },
+  onboarding: {
+    page: 0,
+  },
+  login: {
+    cpf: '',
+    isKeyboardShowing: false,
+  },
 };

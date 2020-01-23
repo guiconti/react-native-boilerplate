@@ -6,8 +6,13 @@
 //  Copyright © 2020 Facebook. All rights reserved.
 //
 
-#ifndef react_framework_boilerplate_Bridging_Header_h
-#define react_framework_boilerplate_Bridging_Header_h
+//
+//  Use this file to import your target's public headers that you would like to expose to Swift.
+//
 
-
-#endif /* react_framework_boilerplate_Bridging_Header_h */
+#import <React/RCTBridgeModule.h>
+#import <React/RCTBridge.h>
+#import <React/RCTEventDispatcher.h>
+#import <React/RCTRootView.h>
+#import <React/RCTUtils.h>
+#import <React/RCTConvert.h>

@@ -16,4 +16,9 @@ FOUNDATION_EXPORT const unsigned char react_framework_boilerplateVersionString[]
 
 // In this header, you should import all the public headers of your framework using statements like #import <react_framework_boilerplate/PublicHeader.h>
 
-
+#import <React/RCTBridgeModule.h>
+#import <React/RCTBridge.h>
+#import <React/RCTEventDispatcher.h>
+#import <React/RCTRootView.h>
+#import <React/RCTUtils.h>
+#import <React/RCTConvert.h>
