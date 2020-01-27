@@ -1,28 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   SafeAreaView,
   View,
 } from 'react-native';
 import styles from '../../styles/homePage.js';
 import { Card, CardItem, Body, Left, Icon, Text, Spinner } from 'native-base';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../../actions/walletActions';
+import { getWalletFunds } from '../../reducers/selectors';
+import { fetchFunds } from  '../../actions/walletActions';
 
-class Wallet extends React.Component {
+const Wallet = () => {
+  const dispatch = useDispatch();
+  const funds = useSelector(getWalletFunds);
+  useEffect(() => {
+    dispatch(fetchFunds());
+  }, []);
 
-  getFunds = () => {
-    this.props.actions.getFunds();
-  };
-
-  componentDidMount() {
-    this.getFunds();
-  }
-
-  render() {
-    const wallet = this.props.wallet;
-    return (
+  return (
     <>
       <SafeAreaView>
         <View style={styles.body}>
@@ -31,13 +25,13 @@ class Wallet extends React.Component {
               <CardItem style={styles.card}>
                 <Text style={{ color: 'white' }}>Wallet</Text>
               </CardItem>
-              {wallet.funds ? (
+              {funds ? (
                 <CardItem style={styles.card}>
                   <Left>
                     <Icon style={{ color: 'white' }} name="card" />
                     <Body>
                       <Text style={{ color: 'white' }}>Fundos na carteira</Text>
-                      <Text note style={{ color: 'white' }}>R$ {wallet.funds}</Text>
+                      <Text note style={{ color: 'white' }}>R$ {funds}</Text>
                     </Body>
                   </Left>
                 </CardItem>
@@ -51,28 +45,7 @@ class Wallet extends React.Component {
         </View>
       </SafeAreaView>
     </>
-    );
-  }
+  )
 }
 
-Wallet.propTypes = {
-  actions: PropTypes.object.isRequired,
-  wallet: PropTypes.object.isRequired,
-};
-
-function mapStateToProps(state) {
-  return {
-    wallet: state.wallet
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Wallet);
+export default Wallet;

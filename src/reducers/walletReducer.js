@@ -1,4 +1,4 @@
-import { FUNDS } from '../types/wallet';
+import { WALLET_FUNDS } from '../types/wallet';
 import objectAssign from 'object-assign';
 import initialState from './initialState';
 
@@ -9,8 +9,8 @@ import initialState from './initialState';
 // and update values on the copy.
 export default function walletReducer(state = initialState.wallet, action) {
   switch (action.type) {
-    case FUNDS:
-      return objectAssign({}, state, { funds: action.value });
+    case WALLET_FUNDS:
+      return objectAssign({}, state, { funds: action.payload });
 
     default:
       return state;

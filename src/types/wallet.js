@@ -1,1 +1,2 @@
-export const FUNDS = 'FUNDS';
+export const WALLET_FETCH_FUNDS = 'WALLET_FETCH_FUNDS';
+export const WALLET_FUNDS = 'WALLET_FUNDS';

@@ -1,54 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import BarText from '../elements/BarText';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../../actions/barActions';
+import { getBarExample, getBarAnotherExample } from '../../reducers/selectors';
+import { fetchExample, anotherExample } from '../../actions/barActions';
 
-export class BarPage extends React.Component {
-  example = () => {
-    this.props.actions.example('A delayed example');
-  }
+const BarPage = () => {
+  const dispatch = useDispatch();
+  const example = useSelector(getBarExample);
+  const secondExample = useSelector(getBarAnotherExample);
+  useEffect(() => {
+    dispatch(fetchExample());
+    dispatch(anotherExample({
+      fieldName: 'anotherExample',
+      value: 'Not a delayed example'
+    }));
+  }, []);
 
-  anotherExample = () => {
-    this.props.actions.anotherExample('anotherExample', 'Not a delayed example');
-  }
-
-  componentDidMount() {
-    this.example();
-    this.anotherExample();
-  }
-
-  render() {
-    const bar = this.props.bar;
-    return (
-      <div>
-        <h2 className="alt-header">Example</h2>
-        <BarText fixedText="The example value is" dynamicText={bar.example}/>
-        <BarText fixedText="The another example value is" dynamicText={bar.anotherExample}/>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h2 className="alt-header">Example</h2>
+      <BarText fixedText="The example value is" dynamicText={example}/>
+      <BarText fixedText="The another example value is" dynamicText={secondExample}/>
+    </div>
+  )
 }
 
-BarPage.propTypes = {
-  actions: PropTypes.object.isRequired,
-  bar: PropTypes.object.isRequired
-};
-
-function mapStateToProps(state) {
-  return {
-    bar: state.bar
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BarPage);
+export default BarPage;

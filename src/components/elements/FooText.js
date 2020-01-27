@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FooText = (props) => {
+const FooText = ({ fixedText, dynamicText }) => {
   return (
     <p>
-      {props.fixedText} {props.dynamicText}
+      {fixedText} {dynamicText}
     </p>
   );
 };
