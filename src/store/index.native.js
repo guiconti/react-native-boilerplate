@@ -1,32 +1,43 @@
-import { createStore, compose, applyMiddleware } from 'redux';
+import {createStore, compose, applyMiddleware} from 'redux';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
-import thunkMiddleware from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import createRootReducer from '../reducers';
+import rootSaga from '../sagas';
+
+const sagaMiddleware = createSagaMiddleware()
 
 function configureStoreProd(initialState) {
-  return createStore(
-    createRootReducer(),
-    initialState,
-    applyMiddleware(thunkMiddleware),
-  );
-}
-
-function configureStoreDev(initialState) {
   const middlewares = [
-    // Add other middleware on this line...
-
-    // Redux middleware that spits an error on you when you try to mutate your state either inside a dispatch or between dispatches.
-    reduxImmutableStateInvariant(),
-
-    // thunk middleware can also accept an extra argument to be passed to each thunk action
-    // https://github.com/reduxjs/redux-thunk#injecting-a-custom-argument
-    thunkMiddleware,
+    sagaMiddleware
   ];
-  return createStore(
+
+  const store = createStore(
     createRootReducer(),
     initialState,
     compose(applyMiddleware(...middlewares))
   );
+
+  sagaMiddleware.run(rootSaga);
+
+  return store;
+}
+
+function configureStoreDev(initialState) {
+  const middlewares = [
+    reduxImmutableStateInvariant(),
+    sagaMiddleware
+  ];
+
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const store = createStore(
+    createRootReducer(),
+    initialState,
+    composeEnhancers(applyMiddleware(...middlewares))
+  );
+
+  sagaMiddleware.run(rootSaga);
+
+  return store;
 }
 
 const configureStore = process.env.NODE_ENV === 'production' ? configureStoreProd : configureStoreDev;
