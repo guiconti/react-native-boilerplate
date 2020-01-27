@@ -11,13 +11,10 @@ import styles from '../../styles/homePage.js';
 import navigate from '../../utils/navigate';
 import { EXAMPLE } from '../../constants/screens';
 import { Content, Button, Text } from 'native-base';
-import { connect } from 'react-redux';
 import Wallet from '../containers/Wallet';
 
-class HomePage extends React.Component {
-  render() {
-    const { navigation } = this.props;
-    return (
+const HomePage = ({ navigation }) => {
+  return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
@@ -38,23 +35,11 @@ class HomePage extends React.Component {
         </ScrollView>
       </SafeAreaView>
     </>
-    );
-  }
+  );
 }
 
 HomePage.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-function mapStateToProps(state) {
-  return {};
-}
-
-function mapDispatchToProps(dispatch) {
-  return {};
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HomePage);
+export default HomePage;
